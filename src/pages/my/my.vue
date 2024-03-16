@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useMemberStore } from '@/stores'
-
 const memberStore = useMemberStore()
 </script>
 

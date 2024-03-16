@@ -116,7 +116,7 @@ devDependencies:
     specifier: ^8.0.0
     version: 8.0.2
   lint-staged:
-    specifier: ^13.0.3
+    specifier: ^13.0.4
     version: 13.0.4
   miniprogram-api-typings:
     specifier: ^3.12.0
