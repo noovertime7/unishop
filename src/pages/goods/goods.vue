@@ -116,6 +116,11 @@ const onAddCart = async (ev: SkuPopupEvent) => {
   uni.showToast({ title: '添加成功' })
   isShowSku.value = false
 }
+
+// 立即购买
+const onBuyNow = (ev: SkuPopupEvent) => {
+  uni.navigateTo({ url: `/pagesOrder/create/create?skuId=${ev._id}&count=${ev.buy_num}` })
+}
 </script>
 
 <template>
@@ -128,6 +133,7 @@ const onAddCart = async (ev: SkuPopupEvent) => {
     buy-now-background-color="#27BA9B"
     ref="skuPopupRef"
     @add-cart="onAddCart"
+    @buy-now="onBuyNow"
     :actived-style="{
       color: '#27BA9B',
       borderColor: '#27BA9B',
@@ -229,14 +235,18 @@ const onAddCart = async (ev: SkuPopupEvent) => {
   <view class="toolbar" :style="{ paddingBottom: safeAreaInsets?.bottom + 'px' }">
     <view class="icons">
       <button class="icons-button"><text class="icon-heart"></text>收藏</button>
+      <!-- #ifdef MP-WEIXIN -->
       <button class="icons-button" open-type="contact">
         <text class="icon-handset"></text>客服
       </button>
-      <navigator class="icons-button"><text class="icon-cart"></text>购物车</navigator>
+      <!-- #endif -->
+      <navigator class="icons-button" url="/pages/cart/cart2" open-type="navigate">
+        <text class="icon-cart"></text>购物车
+      </navigator>
     </view>
     <view class="buttons">
-      <view class="addcart"> 加入购物车 </view>
-      <view class="payment"> 立即购买 </view>
+      <view class="addcart" @tap="openSkuPopup(SkuMode.Cart)"> 加入购物车 </view>
+      <view class="payment" @tap="openSkuPopup(SkuMode.Buy)"> 立即购买 </view>
     </view>
   </view>
 

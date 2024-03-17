@@ -32,6 +32,12 @@
 			}
 		},
 		{
+			"path": "pages/cart/cart2",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
 			"path": "pages/category/category",
 			"style": {
 				"navigationBarTitleText": "分类"
@@ -132,6 +138,26 @@
 					"network": "all",
 					"packages": [
 						"pagesMember"
+					]
+				}
+			}
+		},
+		{
+			"root": "pagesOrder",
+			"pages": [
+				{
+					"path": "create/create",
+					"style": {
+						"navigationBarTitleText": "create"
+					}
+				}
+			],
+			// 分包预下载规则
+			"preloadRule": {
+				"pages/my/my": {
+					"network": "all",
+					"packages": [
+						"pagesOrder"
 					]
 				}
 			}

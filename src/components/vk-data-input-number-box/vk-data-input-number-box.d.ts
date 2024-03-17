@@ -43,7 +43,6 @@ export type InputNumberBoxEvent = {
   /** 步进器标识符 */
   index: string
 }
-
 /** 全局组件类型声明 */
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
